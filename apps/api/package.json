@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "rm -rf ./dist && tsc",
+    "tsc": "tsc --noEmit",
+    "start": "node dist/src/index.js"
+  },
+  "dependencies": {
+    "@repo/db": "workspace:*",
+    "@repo/trpc-server": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
+  }
+}
