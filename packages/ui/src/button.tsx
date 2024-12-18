@@ -17,3 +17,4 @@ export const Button = ({ children, className,  ...rest }: ButtonProps) => {
     </button>
   );
 };
+export default Button;
