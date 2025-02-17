@@ -1,25 +1,88 @@
-# Monorepo for Web Application Development
+# Web Application Monorepo
+
+A full-stack web application monorepo using modern technologies and best practices.
 
 ## Structure
 
 ### Apps
 
-- **web:** Next.js application for the frontend user interface.
-- **api:** Express backend API powered by TRPC for efficient remote procedure calls.
+- **web/** - Next.js frontend application 
+  - Built with Next.js 15
+  - Uses React 19 with TypeScript
+  - Integrates tRPC client for type-safe API calls
 
-### libs
+- **api/** - Express backend API
+  - Express server with tRPC integration
+  - Type-safe API endpoints
+  - Database integration via Prisma
 
-- **database:** Database interactions handled by Prisma, ensuring data consistency and efficiency.
-- **trpc-client:** Configuration for the frontend to seamlessly communicate with the TRPC server. It supports both the client and react server components.
-- **trpc-server:** Robust TRPC server setup for the backend API.
-- **ui:** Reusable and encapsulated UI components.
-- **typescript-config:** Base Typescript configuration for the monorepo
-- **eslint-config:** ESLint configuration for the monorepo
+### Packages
 
-## Key Features
+- **database/** - Database layer
+  - Prisma ORM for PostgreSQL
+  - Type-safe database schemas
+  - Migration management
 
-- **TypeScript:** Enforces strong typing for a clean, maintainable, and error-free codebase.
-- **Static Testing:** Maintain code quality and catch potential issues early with Prettier, ESLint, and TypeScript.
-- **Type Propagation:** Database types seamlessly flow to UI components, ensuring type safety and preventing errors.
-- **Modern Tooling:** Leverage the power of Prisma, TRPC, and NextAuth for efficient data management, communication, and authentication.
-- **Reusable Components:** Build scalable and maintainable UIs with shared components.
+- **trpc-client/** - tRPC client configuration
+  - Shared tRPC client setup
+  - React Query integration
+  - Type-safe API hooks
+
+- **trpc-server/** - tRPC server implementation
+  - API route definitions
+  - Request validation
+  - Business logic handlers
+
+- **ui/** - Shared UI components
+  - Reusable React components
+  - Consistent styling
+  - Type-safe props
+
+- **typescript-config/** - Shared TypeScript configurations
+  - Base tsconfig
+  - React-specific settings
+  - Strict type checking
+
+- **eslint-config/** - Shared ESLint configurations
+  - Common linting rules
+  - React best practices
+  - TypeScript integration
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+pnpm install
+```
+
+2. Set up the database:
+```bash
+cd packages/database
+pnpm db:push  # Apply database schema
+pnpm db:generate  # Generate Prisma client
+```
+
+3. Start development servers:
+```bash
+pnpm dev
+```
+
+## Development Scripts
+- pnpm dev - Start development environment
+- pnpm build - Build all applications
+- pnpm lint - Run ESLint on all projects
+- pnpm format - Format code with Prettier
+
+## Requirements
+- Node.js >=18
+- PNPM 8.15.6 or higher
+- PostgreSQL database
+
+## Technology Stack
+- Frontend: Next.js 15, React 19
+- Backend: Express, tRPC
+- Database: PostgreSQL, Prisma
+- Type Safety: TypeScript
+- Testing: ESLint, TypeScript
+- Package Management: PNPM Workspaces
+- Build Tool: Turbo
